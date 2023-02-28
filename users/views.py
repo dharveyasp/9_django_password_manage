@@ -10,8 +10,14 @@ from . import forms
 from .models import User
 
 
-class Register(generic.TemplateView):
+class Register(generic.CreateView):
+    form_class = forms.RegisterForm
     template_name = 'users/register.html'
+    success_url = reverse_lazy('login')
+
+    class Meta:
+        model = User
+        fields = ('username', 'password1', 'password2')
 
 
 class Login(LoginView):

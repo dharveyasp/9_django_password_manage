@@ -1,10 +1,12 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from .models import User
+from parsley.decorators import parsleyfy
 
 non_allowed_usernames = ['abc', '123']
 
 
+@parsleyfy
 class RegisterForm(UserCreationForm):
     # email = forms.EmailField(required=True)
 
@@ -20,8 +22,8 @@ class RegisterForm(UserCreationForm):
         return user
 
 
+@parsleyfy
 class LoginForm(AuthenticationForm):
-
     class Meta:
         model = User
         fields = ("username", "password")
