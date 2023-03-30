@@ -1,13 +1,11 @@
-{#{% extends "users/header.html" %}#}
+{% extends "brochure/base.html" %}
 
-{#{% block content %}#}
+{% block content %}
 
-{% load bootstrap5 %}
-
-{% bootstrap_css %}
-{% bootstrap_javascript %}
-
-{% bootstrap_messages %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    {% bootstrap_messages %}
 
 <h1>This is the login page!</h1>
 <form action="" method="POST" class="LoginForm">
@@ -19,3 +17,5 @@
         </button>
     {% endbuttons %}
 </form>
+
+{% endblock %}
