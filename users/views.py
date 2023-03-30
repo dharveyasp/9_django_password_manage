@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -40,3 +40,7 @@ class Login(LoginView):
         else:
             messages.warning(self.request, 'Please enter the correct password!')
             return super().form_invalid(form)
+
+
+class Logout(LogoutView):
+    template_name = 'users/logout.html'

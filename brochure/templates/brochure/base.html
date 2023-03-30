@@ -1,14 +1,13 @@
+{% load bootstrap5 %}
 <!doctype html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        {% load bootstrap5 %}
         {% bootstrap_css %}
-        {% bootstrap_javascript %}
-        {% bootstrap_messages %}
         <title>Password Manager</title>
     </head>
     <body>
+    {% block navbar %}
         <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{% url 'home' %}">PW Manager!</a>
@@ -25,16 +24,21 @@
                         </li>
                         <!-- FIX THIS ONCE LOGOUT PAGE IS MADE: -->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Logout</a>
+                            <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                         </li>
                         <!-- Add more... -->
                     </ul>
                 </div>
             </div>
         </nav>
+    {% endblock %}
+    {% block wrapper %}
         <div class="container">
+            {% bootstrap_messages %}
             {% block content %}
             {% endblock %}
         </div>
+    {% endblock %}
+    {% bootstrap_javascript %}
     </body>
 </html>

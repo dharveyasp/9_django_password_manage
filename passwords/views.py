@@ -7,3 +7,7 @@ from .models import User, Password
 class Dashboard(generic.ListView):
     template_name = 'passwords/dashboard.html'
     model = Password
+
+    def get_queryset(self):
+        qs = Password.objects.filter(user=self.request.user)
+        return qs
