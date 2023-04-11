@@ -2,7 +2,10 @@
 {% load bootstrap5 %}
 
 {% block content %}
+    <a href="{% url 'passwords_create' %}">Add a password</a>
+    <br> <br>
     {% for object in object_list %}
-    <p>{{ object.title }}</p>
+        <a href="{% url 'passwords_detail' object.id %}">{{ object.title }}</a>
+        <br>
     {% endfor %}
 {% endblock %}

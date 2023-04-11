@@ -2,9 +2,7 @@
 {% load bootstrap5 %}
 
 {% block content %}
-
-    <h1>This is the registration page!</h1>
-    <form action="" method="POST" class="RegisterForm">
+    <form action="" method="POST" class="EditForm">
         {% csrf_token %}
         {% bootstrap_form form %}
         {% buttons %}
@@ -13,5 +11,4 @@
             </button>
         {% endbuttons %}
     </form>
-
 {% endblock %}

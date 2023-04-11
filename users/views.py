@@ -14,18 +14,15 @@ class Register(generic.CreateView):
     form_class = forms.RegisterForm
     template_name = 'users/register.html'
     success_url = reverse_lazy('login')
-
-    class Meta:
-        model = User
-        fields = ('username', 'password1', 'password2')
+    model = User
 
 
 class Login(LoginView):
     model = User
     redirect_authenticated_user = True
-    redirect_field_name = reverse_lazy('password_dashboard')
+    redirect_field_name = reverse_lazy('passwords_dashboard')
     template_name = 'users/login.html'
-    next_page = reverse_lazy('password_dashboard')
+    next_page = reverse_lazy('passwords_dashboard')
 
     def form_valid(self, form):
         if self.request.user.is_authenticated:
@@ -44,3 +41,5 @@ class Login(LoginView):
 
 class Logout(LogoutView):
     template_name = 'users/logout.html'
+    redirect_field_name = reverse_lazy('login')
+    next_page = reverse_lazy('login')
