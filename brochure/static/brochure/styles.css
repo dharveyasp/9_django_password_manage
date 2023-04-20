@@ -1,0 +1,20 @@
+.sensitive {
+    text-decoration: none;
+    color: transparent;
+    background-color: black;
+    display: inline-block;
+    width: 100%;
+}
+
+.sensitive:hover {
+    background-color: transparent;
+    color: black;
+    transition-timing-function: linear;
+    transition-duration: 200ms;
+}
+a {
+    color: #212529;
+}
+a i{
+    color: #212529;
+}

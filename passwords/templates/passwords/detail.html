@@ -3,9 +3,9 @@
 
 {% block content %}
     <h1>{{ object.title }}</h1>
-    <a href="{% url 'passwords_dashboard' %}">Back to Dashboard</a>
-    <a href="{% url 'passwords_edit' object.id %}">Insert Edit Favicon Here</a>
-    <a href="{% url 'passwords_delete' object.id %}">Insert Delete Favicon Here</a>
+    <a href="{% url 'passwords_dashboard' %}"><i class="fa-solid fa-right-from-bracket fa-flip-horizontal"></i>Back</a>
+    <a href="{% url 'passwords_edit' object.id %}"><i class="fa-solid fa-pen-to-square"></i>Edit</a>
+    <a href="{% url 'passwords_delete' object.id %}"><i class="fa-solid fa-trash-can"></i>Delete</a>
     <p>{{ object.user_name }}</p>
     <p>{{ object.pass_word }}</p>
     <p>{{ object.description }}</p>

@@ -1,11 +1,31 @@
 {% extends "brochure/base.html" %}
 {% load bootstrap5 %}
-
 {% block content %}
-    <a href="{% url 'passwords_create' %}">Add a password</a>
-    <br> <br>
-    {% for object in object_list %}
-        <a href="{% url 'passwords_detail' object.id %}">{{ object.title }}</a>
-        <br>
-    {% endfor %}
+    <a href="{% url 'passwords_create' %}"><i class="fa-solid fa-pen-to-square"></i>Add a password!</a>
+    <br><br>
+
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Description</th>
+            </tr>
+            {% for object in object_list %}
+            <tr>
+                <td>
+                    <a href="{% url 'passwords_detail' object.id %}">{{ object.title }}</a>
+                </td>
+                <td>
+                    {{ object.user_name }}
+                </td>
+                <td>
+                    <span class="sensitive">{{ object.pass_word }}</span>
+                </td>
+                <td>
+                    {{ object.description|slice:"50" }}
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
 {% endblock %}
