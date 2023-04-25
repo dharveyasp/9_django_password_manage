@@ -14,17 +14,17 @@ class AuthUser:
         return qs
 
 
-class Dashboard(generic.ListView, AuthUser):
+class Dashboard(AuthUser, generic.ListView):
     template_name = 'passwords/dashboard.html'
     model = Password
 
 
-class Detail(generic.DetailView, AuthUser):
+class Detail(AuthUser, generic.DetailView):
     model = Password
     template_name = 'passwords/detail.html'
 
 
-class Edit(generic.UpdateView, AuthUser):
+class Edit(AuthUser, generic.UpdateView):
     model = Password
     template_name = 'passwords/edit.html'
     form_class = EditForm
@@ -33,7 +33,7 @@ class Edit(generic.UpdateView, AuthUser):
         return reverse_lazy('passwords_detail', kwargs={'pk': self.object.id})
 
 
-class Create(generic.CreateView, AuthUser):
+class Create(AuthUser, generic.CreateView):
     model = Password
     template_name = 'passwords/create.html'
     form_class = EditForm
@@ -49,7 +49,7 @@ class Create(generic.CreateView, AuthUser):
         return reverse_lazy('passwords_detail', kwargs={'pk': self.object.id})
 
 
-class Delete(generic.DeleteView, AuthUser):
+class Delete(AuthUser, generic.DeleteView):
     model = Password
     template_name = 'passwords/password_confirm_delete.html'
     success_url = reverse_lazy('passwords_dashboard')
